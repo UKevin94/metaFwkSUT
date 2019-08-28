@@ -1,0 +1,11 @@
+SETUP :
+# EXECUTE_SQL sql/add_contact.sql ON jacksonviews-db AS query_result
+# SUBSTITUTE KEYS IN soapui/JacksonviewsAPI-project.xml USING host_info.properties AS modified-soap
+
+TEST :
+
+
+# EXECUTE_SOAPUI modified-soap
+
+TEARDOWN :
+# EXECUTE_SQL sql/delete_contact.sql ON jacksonviews-db AS teardown_result

@@ -1,0 +1,1 @@
+INSERT INTO jac_contact VALUES (1, 'John', 'Smith', 'foo@foo.foo', 39);

@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="5277cf66-a56e-4965-a899-63430408227e" activeEnvironment="Default" name="JacksonviewsAPI"
+                    resourceRoot="" soapui-version="5.5.0" xmlns:con="http://eviware.com/soapui/config">
+    <con:settings/>
+    <con:interface xsi:type="con:RestService" id="7a625313-b4ae-447c-8d54-fb52f48bd9e4"
+                   wadlVersion="http://wadl.dev.java.net/2009/02" name="http://${host_address}:8080" type="rest"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <con:settings/>
+        <con:definitionCache type="TEXT" rootPart=""/>
+        <con:endpoints>
+            <con:endpoint>http://${host_address}:8080</con:endpoint>
+        </con:endpoints>
+        <con:resource name="contacts" path="/api/contacts" id="a208c0e8-7c7e-44a6-b805-d279caf45429">
+            <con:settings/>
+            <con:parameters>
+                <con:parameter>
+                    <con:name>Authorization</con:name>
+                    <con:value/>
+                    <con:style>HEADER</con:style>
+                    <con:default/>
+                    <con:description xsi:nil="true"/>
+                </con:parameter>
+            </con:parameters>
+            <con:method name="GetContacts" id="f20bd72d-20ed-4c24-8a73-6fe3828f1803" method="GET">
+                <con:settings/>
+                <con:parameters/>
+                <con:representation type="FAULT">
+                    <con:mediaType>application/problem+json</con:mediaType>
+                    <con:status>401</con:status>
+                    <con:params/>
+                    <con:element xmlns:con1="http://${host_address}/api/contacts">con1:Fault</con:element>
+                </con:representation>
+                <con:representation type="RESPONSE">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>200</con:status>
+                    <con:params/>
+                    <con:element>Response</con:element>
+                </con:representation>
+                <con:request name="GetAllContacts" id="9cd84b40-cc9a-42be-a88a-b6a37e9dbbd7"
+                             mediaType="application/json">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>http://${host_address}:8080</con:endpoint>
+                    <con:request/>
+                    <con:originalUri>http://${host_address}/api/contacts</con:originalUri>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters>
+                        <entry key="Authorization" value="Bearer ${#TestCase#token}"
+                               xmlns="http://eviware.com/soapui/config"/>
+                    </con:parameters>
+                    <con:parameterOrder>
+                        <con:entry>Authorization</con:entry>
+                    </con:parameterOrder>
+                </con:request>
+            </con:method>
+        </con:resource>
+        <con:resource name="authenticate" path="/api/authenticate" id="3874a746-80d5-4e05-9050-b8a81c622c89">
+            <con:settings/>
+            <con:parameters/>
+            <con:method name="Auth" id="e6be938a-7b39-431f-9708-6a7ee77c3946" method="POST">
+                <con:settings/>
+                <con:parameters/>
+                <con:representation type="RESPONSE">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>200</con:status>
+                    <con:params/>
+                    <con:element xmlns:aut="http://${host_address}/api/authenticate">aut:Response</con:element>
+                </con:representation>
+                <con:representation type="REQUEST">
+                    <con:mediaType>application/json</con:mediaType>
+                    <con:params/>
+                </con:representation>
+                <con:request name="GetAuth" id="015d4077-bebc-40ca-af4a-f481063c6555" mediaType="application/json"
+                             postQueryString="false">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>http://${host_address}:8080</con:endpoint>
+                    <con:request>{
+                        "password": "admin",
+                        "rememberMe": false,
+                        "username": "admin"
+                        }
+                    </con:request>
+                    <con:originalUri>http://${host_address}/api/authenticate</con:originalUri>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters/>
+                </con:request>
+            </con:method>
+        </con:resource>
+    </con:interface>
+    <con:testSuite id="47b5831a-876e-464e-be0d-3c811e920e9f" name="ContactSuite">
+        <con:settings/>
+        <con:runType>SEQUENTIAL</con:runType>
+        <con:testCase id="8ba2912d-f723-4861-90ca-0d7c98e79930" failOnError="true" failTestCaseOnErrors="true"
+                      keepSession="false" maxResults="0" name="AddContact" searchProperties="true">
+            <con:settings/>
+            <con:testStep type="restrequest" name="Auth" id="900e2311-d9d2-400b-9cee-209c6872b0e8">
+                <con:settings/>
+                <con:config service="http://${host_address}:8080" resourcePath="/api/authenticate" methodName="Auth"
+                            xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <con:restRequest name="Auth" id="015d4077-bebc-40ca-af4a-f481063c6555" mediaType="application/json"
+                                     postQueryString="false">
+                        <con:settings>
+                            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+                        </con:settings>
+                        <con:endpoint>http://${host_address}:8080</con:endpoint>
+                        <con:request>{
+                            "password": "admin",
+                            "rememberMe": false,
+                            "username": "admin"
+                            }
+                        </con:request>
+                        <con:originalUri>http://${host_address}/api/authenticate</con:originalUri>
+                        <con:assertion type="JsonPath Existence Match" id="79c7efec-abd9-4274-a3fa-beb529d101cf"
+                                       name="JsonPath Existence Match">
+                            <con:configuration>
+                                <path>.id_token</path>
+                                <content>true</content>
+                                <allowWildcards>false</allowWildcards>
+                                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                                <ignoreComments>false</ignoreComments>
+                            </con:configuration>
+                        </con:assertion>
+                        <con:credentials>
+                            <con:authType>No Authorization</con:authType>
+                        </con:credentials>
+                        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                        <con:jmsPropertyConfig/>
+                        <con:parameters/>
+                    </con:restRequest>
+                </con:config>
+            </con:testStep>
+            <con:testStep type="transfer" name="TokenTransfer" id="479aeabb-db21-4534-81eb-96e9a7f0a11a">
+                <con:settings/>
+                <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true"
+                                   ignoreEmpty="false" transferToAll="false" entitize="false"
+                                   transferChildNodes="false">
+                        <con:name>token</con:name>
+                        <con:sourceType>Response</con:sourceType>
+                        <con:sourceStep>Auth</con:sourceStep>
+                        <con:sourcePath>$id_token</con:sourcePath>
+                        <con:targetType>token</con:targetType>
+                        <con:targetStep>#TestCase#</con:targetStep>
+                        <con:type>JSONPATH</con:type>
+                        <con:upgraded>true</con:upgraded>
+                    </con:transfers>
+                </con:config>
+            </con:testStep>
+            <con:testStep type="restrequest" name="GetContacts" id="3cae149c-53a4-4ad5-aa67-a2d41d54878b">
+                <con:settings/>
+                <con:config service="http://${host_address}:8080" methodName="GetContacts" resourcePath="/api/contacts"
+                            xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <con:restRequest name="GetContacts" id="769d5a43-c918-4b45-b97a-ccbe56359c70"
+                                     mediaType="application/json">
+                        <con:settings>
+                            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+                        </con:settings>
+                        <con:encoding>UTF-8</con:encoding>
+                        <con:endpoint>http://${host_address}:8080</con:endpoint>
+                        <con:request/>
+                        <con:originalUri>http://${host_address}/api/contacts</con:originalUri>
+                        <con:assertion type="JsonPath Match" id="db553c23-cbc8-49a7-a0da-69509f015ff2"
+                                       name="FirstNameMatch">
+                            <con:configuration>
+                                <path>.firstName</path>
+                                <content>[John]</content>
+                                <allowWildcards>false</allowWildcards>
+                                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                                <ignoreComments>false</ignoreComments>
+                            </con:configuration>
+                        </con:assertion>
+                        <con:assertion type="JsonPath Match" id="c300f523-8b8d-414c-b896-2a5938b7f16f"
+                                       name="LastNameMatch">
+                            <con:configuration>
+                                <path>.lastName</path>
+                                <content>[Smith]</content>
+                                <allowWildcards>false</allowWildcards>
+                                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                                <ignoreComments>false</ignoreComments>
+                            </con:configuration>
+                        </con:assertion>
+                        <con:assertion type="Valid HTTP Status Codes" id="aaf71e13-4857-41e2-87f9-42004a32a4b7"
+                                       name="Valid HTTP Status Codes">
+                            <con:configuration>
+                                <codes>200</codes>
+                            </con:configuration>
+                        </con:assertion>
+                        <con:credentials>
+                            <con:authType>No Authorization</con:authType>
+                        </con:credentials>
+                        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                        <con:jmsPropertyConfig/>
+                        <con:parameters>
+                            <entry key="Authorization" value="Bearer ${#TestCase#token}"
+                                   xmlns="http://eviware.com/soapui/config"/>
+                        </con:parameters>
+                    </con:restRequest>
+                </con:config>
+            </con:testStep>
+            <con:properties>
+                <con:property>
+                    <con:name>token</con:name>
+                    <con:value>
+                        eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX0FETUlOLFJPTEVfVVNFUiIsImV4cCI6MTU2NjkxOTM4MH0.UuEpaEnUfMdS7-O5-vI_yBsPoLNgSAZZtH6z-G6u6GlAaQKsXK7QnrT4tt_6Ku8rzWrptwjZ65-ALU2SUrotaQ
+                    </con:value>
+                </con:property>
+            </con:properties>
+        </con:testCase>
+        <con:properties/>
+    </con:testSuite>
+    <con:properties/>
+    <con:wssContainer/>
+    <con:oAuth2ProfileContainer/>
+    <con:oAuth1ProfileContainer/>
+</con:soapui-project>

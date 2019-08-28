@@ -1,0 +1,1 @@
+DELETE FROM jac_contact WHERE id=1;
