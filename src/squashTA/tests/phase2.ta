@@ -1,3 +1,0 @@
-TEST :
-# SUBSTITUTE KEYS IN soapui/JacksonviewsAPI-project.xml USING host_info.properties AS modified-soap
-# EXECUTE_SOAPUI modified-soap
