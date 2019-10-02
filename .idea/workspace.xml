@@ -2,9 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b504fb55-c4dc-46b2-abc3-8a43d26344d3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/squashTA/resources/host_info.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/squashTA/resources/host_info.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/squashTA/resources/sql/add_contact.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/squashTA/resources/sql/add_contact.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/squashTA/targets/jacksonviews-db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/squashTA/targets/jacksonviews-db.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/squashTA/tests/webservice_test.ta" beforeDir="false" afterPath="$PROJECT_DIR$/src/squashTA/tests/webservice_test.ta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/squashTA.galaxia/componentRegistry.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/squashTA.galaxia/componentRegistry.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/squashTA/html-reports/public/stylesheets/knacss.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/squashTA/html-reports/public/stylesheets/knacss.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/squashTA/html-reports/public/stylesheets/tweaks.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/squashTA/html-reports/public/stylesheets/tweaks.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/squashTA/html-reports/squash-ta-report.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/squashTA/html-reports/squash-ta-report.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/squashTA/surefire-reports/TEST-tests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/squashTA/surefire-reports/TEST-tests.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/squashTA/surefire-reports/tests.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/squashTA/surefire-reports/tests.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/squashTA/test-tree/testTree.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/squashTA/test-tree/testTree.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -63,7 +73,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
